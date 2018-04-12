@@ -1,9 +1,9 @@
 import URLJoin from 'url-join';
 
 class BaseModel {
-  constructor({ url = 'https://gitlab.com', token, oauthToken }) {
+  constructor({ url = 'https://gitlab.com', token, oauthToken, headers = {} }) {
     this.url = URLJoin(url, 'api', 'v4');
-    this.headers = {};
+    this.headers = headers;
 
     if (oauthToken) {
       this.headers.Authorization = `Bearer ${oauthToken}`;
